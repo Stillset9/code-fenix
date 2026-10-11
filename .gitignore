@@ -1,0 +1,10 @@
+# Referencias de estilo de terceros: no se distribuyen
+referencias/
+# Sistema / editores
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+node_modules/
+*.zip

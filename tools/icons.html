@@ -1,0 +1,18 @@
+<!doctype html><html><body style="margin:0;background:#222">
+<script>
+// Ícono de Code Fenix generado por código: fénix de fuego en pixel art (64x64) escalado sin suavizado.
+function base(pad){ // pad: margen de seguridad (0..1) para íconos "maskable"
+  const c=document.createElement('canvas'); c.width=c.height=64; const x=c.getContext('2d');
+  const px=(X,Y,c2)=>{ x.fillStyle=c2; x.fillRect(Math.round(X),Math.round(Y),1,1); };
+  for(const side of [-1,1]) for(let i=0;i<24;i++){ const t=i/24, wx=32+side*(3+i), wy=26-Math.sin(t*Math.PI*0.95)*14+t*6, len=Math.round(5+(1-t)*10+Math.sin(i*1.3)*2);
+    for(let j=0;j<len;j++){ const k=j/len; px(wx+side*j*0.25,wy+j,k<0.2?'#fff2c0':k<0.55?'#ffa83a':'#c0301e'); } }
+  for(let j=0;j<18;j++){ const w=j<4?1:j<12?2:1; for(let k=-w;k<=w;k++) px(32+k,18+j,j<3?'#fff8e0':j<9?'#ffd070':'#ff9a3a'); }
+  px(32,16,'#fff8e0'); px(33,17,'#ffb040'); px(34,17,'#ffb040');
+  for(let j=0;j<14;j++){ const sp=Math.round(j*0.35); for(const k of [-sp,0,sp]) px(32+k,36+j,j<5?'#ffb040':j<10?'#e0501e':'#7a1a10'); }
+  return c; }
+function out(size,pad){ const b=base(), c=document.createElement('canvas'); c.width=c.height=size; const x=c.getContext('2d');
+  const g=x.createRadialGradient(size/2,size*0.47,size*0.03,size/2,size/2,size*0.72); g.addColorStop(0,'#5a1e10'); g.addColorStop(0.45,'#1e0a14'); g.addColorStop(1,'#07040a'); x.fillStyle=g; x.fillRect(0,0,size,size);
+  const k=Math.max(1,Math.floor(size*(1-2*pad)/64)), inner=size<64?size:(size>=448?k*64:Math.round(size*(1-2*pad))), o=Math.floor((size-inner)/2); x.imageSmoothingEnabled=size<64; x.drawImage(b,o,o,inner,inner); return c.toDataURL('image/png'); }
+window.ICONS={ 'icon-192.png':out(192,0), 'icon-512.png':out(512,0.06), 'icon-maskable-512.png':out(512,0.18), 'apple-touch-icon.png':out(180,0.03), 'favicon-32.png':out(32,0) };
+const im=new Image(); im.src=ICONS['icon-512.png']; document.body.appendChild(im);
+</script></body></html>
